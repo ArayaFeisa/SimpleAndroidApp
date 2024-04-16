@@ -38,6 +38,7 @@ public class FetchDataTask extends AsyncTask<Void, Void, ArrayList<TodoItem>> {
             Gson gson = new Gson();
             Type todoListType = new TypeToken<ArrayList<TodoItem>>(){}.getType();
             todoItems = gson.fromJson(response, todoListType);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,4 +57,3 @@ public class FetchDataTask extends AsyncTask<Void, Void, ArrayList<TodoItem>> {
         void onDataFetched(ArrayList<TodoItem> todoItems);
     }
 }
-
