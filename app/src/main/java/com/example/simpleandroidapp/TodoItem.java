@@ -10,7 +10,7 @@ public class TodoItem {
         this.what = what;
         this.time = time;
     }
-    
+
     public int getId() {
         return id;
     }
