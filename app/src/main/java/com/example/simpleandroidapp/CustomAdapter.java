@@ -30,4 +30,3 @@ public class CustomAdapter extends ArrayAdapter<TodoItem> {
         return convertView;
     }
 }
-
