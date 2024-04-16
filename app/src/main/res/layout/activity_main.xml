@@ -6,9 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+        <TextView
+            android:id="@+id/headerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFEE98"
+            android:padding="16dp"
+            android:text="JADWAL HARIAN\nNama: Muhammad Rizkifeisa Araya\nNIM: 225150701111024"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerTextView"
+            tools:listitem="@android:layout/simple_list_item_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

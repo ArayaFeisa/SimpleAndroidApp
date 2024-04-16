@@ -1,17 +1,17 @@
 package com.example.simpleandroidapp;
 
 public class TodoItem {
-    private int id;
+    private String id;
     private String what;
     private String time;
 
-    public TodoItem(int id, String what, String time) {
+    public TodoItem(String id, String what, String time) {
         this.id = id;
         this.what = what;
         this.time = time;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

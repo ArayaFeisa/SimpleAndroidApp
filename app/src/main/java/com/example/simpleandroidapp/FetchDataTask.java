@@ -13,6 +13,11 @@ import java.util.ArrayList;
 
 public class FetchDataTask extends AsyncTask<Void, Void, ArrayList<TodoItem>> {
     private static final String URL_STRING = "https://mgm.ub.ac.id/todo.php";
+    private Listener listener;
+
+    public FetchDataTask(Listener listener) {
+        this.listener = listener;
+    }
 
     @Override
     protected ArrayList<TodoItem> doInBackground(Void... voids) {
@@ -30,7 +35,6 @@ public class FetchDataTask extends AsyncTask<Void, Void, ArrayList<TodoItem>> {
             reader.close();
             String response = stringBuilder.toString();
 
-            // Parsing JSON response using Gson
             Gson gson = new Gson();
             Type todoListType = new TypeToken<ArrayList<TodoItem>>(){}.getType();
             todoItems = gson.fromJson(response, todoListType);
@@ -43,6 +47,13 @@ public class FetchDataTask extends AsyncTask<Void, Void, ArrayList<TodoItem>> {
     @Override
     protected void onPostExecute(ArrayList<TodoItem> todoItems) {
         super.onPostExecute(todoItems);
-        // Update UI with fetched data, for example, update ListView adapter
+        if (listener != null) {
+            listener.onDataFetched(todoItems);
+        }
+    }
+
+    public interface Listener {
+        void onDataFetched(ArrayList<TodoItem> todoItems);
     }
 }
+
